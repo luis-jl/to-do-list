@@ -5,13 +5,16 @@ const formulario = document.querySelector("#form");
 let tweets = [];
 eventos()
 function eventos() {
-    eliminarTodo.addEventListener("click", function(){
-        limpiar();
-    })
+    eliminarTodo.addEventListener("click", function(e){
+        e.preventDefault()
+        tweets = [];
+        limpiar()
+        localStorage.removeItem("tweets");
+    });
     formulario.addEventListener("submit", agregarTweet);
     document.addEventListener("DOMContentLoaded", () => {
         tweets = JSON.parse( localStorage.getItem("tweets")) || [];
-        MostrarTweet();
+        
     });
 }
 
@@ -61,7 +64,6 @@ function MostrarTweet(){
             e.preventDefault()
             borrarTweet(tareas.id);
         }
-
     });
     sincronizarStorage();
 }
@@ -80,4 +82,3 @@ function limpiar() {
 function sincronizarStorage() {
     localStorage.setItem("tweets", JSON.stringify(tweets));
 }
-
