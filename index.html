@@ -10,22 +10,23 @@
 <body>
     <main>
         <header>
-            <h1>Lista De Quehaceres</h1>
+            <h1>Lista De Tareas</h1>
         </header>
         <form id="form">
             <div id="add">
                 <div id="info">
-                    <label for="quehaceres">Añadir Quehaceres</label>
+                    <label for="quehaceres">Añadir Tareas</label>
                     <textarea name="quehaceres" id="quehaceres"></textarea>
                     <input type="submit" id="boton" value="Añadir">
                 </div>
             </div>
             <div id="infoSee">
-                <h3>Quehaceres Pendientes</h3>
-                <div id="tareas"></div>
+                <h3>Tareas Pendientes</h3>
+                <ul id="tareas"></ul>
                 <button type="button" id="eliminar">Eliminar Todo</button>
             </div>
         </form>
     </main>
+    <script src="/app.js"></script>
 </body>
 </html>
