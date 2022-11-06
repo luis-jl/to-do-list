@@ -5,12 +5,14 @@ const formulario = document.querySelector("#form");
 let tweets = [];
 eventos()
 function eventos() {
+    eliminarTodo.addEventListener("click", function(){
+        limpiar();
+    })
     formulario.addEventListener("submit", agregarTweet);
-    btnAdd.keyAccess(enter)
     document.addEventListener("DOMContentLoaded", () => {
         tweets = JSON.parse( localStorage.getItem("tweets")) || [];
         MostrarTweet();
-    })
+    });
 }
 
 function agregarTweet(e) {
@@ -55,7 +57,8 @@ function MostrarTweet(){
         tarea.appendChild(eliminar);
         eliminar.classList.add("eliminar");
 
-        eliminar.onclick = () => {
+        eliminar.onclick = (e) => {
+            e.preventDefault()
             borrarTweet(tareas.id);
         }
 
